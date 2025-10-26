@@ -1,27 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
 
-        app:layout_constraintStart_toStartOf="parent">
+    <!-- Leyenda -->
+    <LinearLayout
+        android:id="@+id/legend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="#CCFFFFFF"
+        android:orientation="vertical"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="12dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:text="Descripción"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:id="@+id/map"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Padres (Naranja)"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Abuelos paternos (Verde)"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Abuelos maternos (Azul)"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Tíos (Magenta)"
+            android:textColor="@color/black"/>
     </LinearLayout>
+
+    <!-- Mapa -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/legend"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Botonera superpuesta -->
+    <LinearLayout
+        android:id="@+id/map_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp">
+
+        <Button
+            android:id="@+id/btn3d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3D" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="8dp"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
